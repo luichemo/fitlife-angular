@@ -1,0 +1,81 @@
+<main class="p-4">
+  <header class="flex justify-between items-center mb-8 pt-4">
+    <div>
+      <h1 class="bebas text-5xl tracking-wider" style="color: var(--primary)">FITRUCK</h1>
+      <p class="uppercase " style="color: var(--secondary)">{{ currentDate }}</p>
+    </div>
+    <div class="w-12 h-12 rounded-2xl flex items-center justify-center border shadow-lg shadow-black/50"
+         style="background: var(--surface); border-color: var(--outline)">
+      <span class="material-symbols-outlined" style="color: var(--primary); font-variation-settings:'FILL' 1,'wght' 500;">bolt</span>
+    </div>
+  </header>
+
+  <!-- Calorie Card -->
+  <div class="rounded-[2.5rem] p-7 mb-6 relative overflow-hidden border"
+       style="background: linear-gradient(135deg, #1a2d00, var(--surface)); border-color: rgba(200,241,53,0.2)">
+    <div class="absolute top-[-20px] right-[-20px] w-32 h-32 rounded-full blur-3xl" style="background: rgba(200,241,53,0.1)"></div>
+    <div class="relative z-10">
+      <p class="text-[10px] font-bold uppercase tracking-[0.2em] mb-2" style="color: rgba(200,241,53,0.6)">დღიური მიზანი</p>
+      <div class="flex items-baseline gap-2">
+        <h2 class="bebas text-7xl leading-none" style="color: var(--primary)">1880</h2>
+        <span class="text-sm bebas" style="color: var(--on-surface-variant)">კკალ</span>
+      </div>
+      <div class="mt-5 flex gap-3 flex-wrap">
+        <div class="px-4 py-2 rounded-xl border border-white/5" style="background: rgba(0,0,0,0.2)">
+          <p class="text-[10px] uppercase mb-1 font-bold" style="color: var(--on-surface-variant)">სტატუსი</p>
+          <p class="text-xs font-bold" style="color: var(--secondary)">🥗 CUTTING PHASE</p>
+        </div>
+        <div class="px-4 py-2 rounded-xl border border-white/5" style="background: rgba(0,0,0,0.2)">
+          <p class="text-[10px] uppercase mb-1 font-bold" style="color: var(--on-surface-variant)">წყალი</p>
+          <p class="text-xs font-bold" style="color: #35b8f1">💧 2.5 ლ/დღეში</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Macros -->
+  <div class="grid grid-cols-3 gap-3 mb-6">
+    <div class="rounded-3xl p-4 text-center border" style="background: rgba(30,33,21,0.5); border-color: var(--outline)">
+      <p class="bebas text-2xl" style="color: var(--secondary)">178გ</p>
+      <p class="text-[9px] uppercase font-bold tracking-wider mt-1" style="color: var(--on-surface-variant)">🥩 პროტეინი</p>
+    </div>
+    <div class="rounded-3xl p-4 text-center border" style="background: rgba(30,33,21,0.5); border-color: var(--outline)">
+      <p class="bebas text-2xl" style="color: var(--primary)">155გ</p>
+      <p class="text-[9px] uppercase font-bold tracking-wider mt-1" style="color: var(--on-surface-variant)">🌾 ნახშ/წყ</p>
+    </div>
+    <div class="rounded-3xl p-4 text-center border" style="background: rgba(30,33,21,0.5); border-color: var(--outline)">
+      <p class="bebas text-2xl text-orange-400">55გ</p>
+      <p class="text-[9px] uppercase font-bold tracking-wider mt-1" style="color: var(--on-surface-variant)">🥑 ცხიმი</p>
+    </div>
+  </div>
+
+ <!-- Shop shortcut -->
+<a
+  routerLink="/shop"
+  class="block rounded-3xl p-5 cursor-pointer active:scale-95 transition-transform mb-6 border no-underline"
+  style="background: var(--surface); border-color: var(--outline)"
+>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <div class="text-2xl mb-2">🛒  <p class="bebas text-2xl" style="color: var(--primary)">
+    {{ shopService.checkedItems() }}/{{ shopService.totalItems() }}
+  </p></div>
+  <div style="display: flex; gap: 10px; align-items: center;">
+     <p class="bebas text-xl" style="color: var(--primary)">
+    ბიუჯეტი:
+  </p>
+
+  <p class="bebas text-xl mt-1" style="color: var(--secondary)">
+    {{ shopService.remainingPrice() }}₾
+  </p>
+  </div>
+</div>
+  
+  
+ 
+
+
+  
+</a>
+
+  
+</main>

@@ -1,0 +1,26 @@
+<div>
+  <router-outlet />
+</div>
+
+<nav class="glass-effect nav-bar">
+  <a routerLink="/home" routerLinkActive #homeLink="routerLinkActive" class="nav-item">
+    <div class="nav-icon-wrap">
+      <span class="material-symbols-outlined" [class.active-icon]="homeLink.isActive">dashboard</span>
+    </div>
+    <span class="nav-label" [class.active-label]="homeLink.isActive">მთავარი</span>
+  </a>
+
+  <a routerLink="/food" routerLinkActive #foodLink="routerLinkActive" class="nav-item">
+    <div class="nav-icon-wrap">
+      <span class="material-symbols-outlined" [class.active-icon]="foodLink.isActive">restaurant_menu</span>
+    </div>
+    <span class="nav-label" [class.active-label]="foodLink.isActive">კვება</span>
+  </a>
+
+  <a routerLink="/shop" routerLinkActive #shopLink="routerLinkActive" class="nav-item">
+    <div class="nav-icon-wrap">
+      <span class="material-symbols-outlined" [class.active-icon]="shopLink.isActive">shopping_bag</span>
+    </div>
+    <span class="nav-label" [class.active-label]="shopLink.isActive">საყიდ.</span>
+  </a>
+</nav>

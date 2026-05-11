@@ -1,0 +1,55 @@
+<main class="p-4">
+  <div class="pt-4 px-1 mb-6">
+    <h2 class="bebas text-5xl" style="color: var(--primary)">საყიდლები</h2>
+
+    <div class="flex justify-between items-center mt-2">
+      <p class="text-sm" style="color: var(--on-surface-variant)">
+        {{ shopService.checkedItems() }} / {{ shopService.totalItems() }} შეძენილი
+      </p>
+
+      <p class="bebas text-xl" style="color: var(--primary)">
+        <small>ბიუჯეტი:</small>  {{ shopService.remainingPrice() }}₾
+      </p>
+
+      <button (click)="reset()"
+        class="text-[10px] font-bold uppercase tracking-widest border-b cursor-pointer bg-transparent" style="
+          color: var(--secondary);
+          border-color: rgba(71,253,164,0.3);
+          border-radius: 10px;
+          padding: 5px 10px;
+          font-size: 15px;
+        ">
+        ↺
+      </button>
+    </div>
+
+    <div class="progress-track mt-3">
+      <div class="progress-fill" [style.width]="shopService.progressPercent() + '%'"></div>
+    </div>
+  </div>
+
+  @for (category of shopService.categories(); track category.title; let catIdx = $index) {
+  <div class="mb-8">
+    <h3 class="bebas text-2xl mb-4 flex items-center gap-2" style="color: var(--secondary)">
+      <span class="w-8 h-8 rounded-xl flex items-center justify-center text-sm"
+        style="background: rgba(71,253,164,0.1)">
+        {{ category.icon }}
+      </span>
+      {{ category.title }}
+    </h3>
+
+    <div class="space-y-3">
+      @for (item of category.items; track item.id) {
+      <div class="cl-item p-4 rounded-3xl flex items-center gap-3 cursor-pointer border" [class.checked]="item.checked"
+        style="background: var(--surface); border-color: var(--outline)" (click)="toggle(catIdx, item.id)">
+        <div class="cl-checkbox"></div>
+        <span class="cl-text text-sm flex-1">{{ item.name }}</span>
+        <span class="bebas text-base leading-none" style="color: var(--primary)">
+          {{ item.price }}
+        </span>
+      </div>
+      }
+    </div>
+  </div>
+  }
+</main>
